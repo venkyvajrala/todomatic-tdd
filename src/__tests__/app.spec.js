@@ -1,11 +1,4 @@
-import {
-	fireEvent,
-	getAllByTestId,
-	render,
-	screen,
-	within,
-} from '@testing-library/react';
-import { userEvent } from '@testing-library/user-event';
+import { fireEvent, render, screen, within } from '@testing-library/react';
 import App from '../App';
 const todos = [
 	{ name: 'eat', completed: true, id: 'todo-0' },
@@ -48,9 +41,7 @@ describe('tests todo app', () => {
 		expect(screen.queryByText(name)).toBeNull();
 	});
 	it('should save after editing the name', () => {
-		const { getAllByRole, getByText, getAllByTestId, getByTestId } = render(
-			<App todos={todos} />
-		);
+		const { getAllByTestId, getByTestId } = render(<App todos={todos} />);
 
 		//clicking edit button
 		const editButtons = getAllByTestId('edit-task');
@@ -70,5 +61,18 @@ describe('tests todo app', () => {
 		//checking saved data in the dom
 		const nameFields = getAllByTestId('name');
 		expect(nameFields[1]).toHaveTextContent('hi');
+	});
+
+	it('should change style of task to (strike-through or null) when check-box ', () => {
+		const { getAllByTestId } = render(<App todos={todos} />);
+		const checkBoxes = getAllByTestId('complete-task');
+		const todo1CheckBox = checkBoxes[1];
+		const todo1Name = getAllByTestId('name')[1];
+		expect(todo1CheckBox.checked).toEqual(false);
+		expect(todo1Name).not.toHaveClass('text-strike');
+
+		fireEvent.click(todo1CheckBox);
+		expect(todo1CheckBox.checked).toEqual(true);
+		expect(todo1Name).toHaveClass('text-strike');
 	});
 });

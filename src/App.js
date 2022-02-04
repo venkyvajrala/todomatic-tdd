@@ -19,6 +19,17 @@ function App(props) {
 		});
 		setTasks(updatedTasks);
 	};
+	const toggleTaskCompletion = (id, name) => {
+		console.log('toggling');
+		const updatedList = tasks.map((task) => {
+			if (task.id === id) {
+				return { ...task, completed: !task.completed };
+			}
+			return task;
+		});
+		setTasks(updatedList);
+	};
+
 	const taskList = tasks.map((task) => {
 		return (
 			<Todo
@@ -27,7 +38,8 @@ function App(props) {
 				id={task.id}
 				key={task.id}
 				deleteTask={deleteTask}
-				editTask={editTask}></Todo>
+				editTask={editTask}
+				toggleTaskCompletion={toggleTaskCompletion}></Todo>
 		);
 	});
 

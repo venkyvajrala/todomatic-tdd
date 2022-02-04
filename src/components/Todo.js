@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 
 const Todo = (props) => {
 	const [isEditing, setEditing] = useState(false);
-	const [newName, setNewName] = useState('');
+	const [newName, setNewName] = useState(props.name);
 	const handleChange = (e) => {
-		setNewName(e.target.value);
+		setNewName(e.target.value || '');
 	};
 	const handleSave = () => {
 		props.editTask(props.id, newName);
@@ -12,8 +12,16 @@ const Todo = (props) => {
 	};
 	const viewTemplate = (
 		<div>
-			<input type='checkbox' data-testid='complete-task'></input>
-			<span data-testid='name'>{props.name}</span>
+			<input
+				type='checkbox'
+				data-testid='complete-task'
+				defaultChecked={props.completed}
+				onClick={() => props.toggleTaskCompletion(props.id)}></input>
+			<span
+				data-testid='name'
+				className={props.completed ? 'text-strike' : null}>
+				{props.name}
+			</span>
 			<button data-testid='edit-task' onClick={() => setEditing(true)}>
 				edit
 			</button>

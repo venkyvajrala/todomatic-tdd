@@ -2,6 +2,14 @@ import React, { useState } from 'react';
 
 const Todo = (props) => {
 	const [isEditing, setEditing] = useState(false);
+	const [newName, setNewName] = useState('');
+	const handleChange = (e) => {
+		setNewName(e.target.value);
+	};
+	const handleSave = () => {
+		props.editTask(props.id, newName);
+		setEditing(false);
+	};
 	const viewTemplate = (
 		<div>
 			<input type='checkbox' data-testid='complete-task'></input>
@@ -18,11 +26,17 @@ const Todo = (props) => {
 	);
 	const editTemplate = (
 		<div>
-			<input type='text' data-testid='edit-name'></input>
+			<input
+				type='text'
+				data-testid='edit-name'
+				value={newName}
+				onChange={handleChange}></input>
 			<button data-testid='cancel' onClick={() => setEditing(false)}>
 				cancel
 			</button>
-			<button data-testid='save'>save</button>
+			<button data-testid='save' onClick={handleSave}>
+				save
+			</button>
 		</div>
 	);
 	return (

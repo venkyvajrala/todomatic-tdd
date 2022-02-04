@@ -44,10 +44,4 @@ describe('todo-list-item-testing', () => {
 		expect(getByTestId('edit-task')).toBeInTheDocument();
 		expect(getByTestId('delete-task')).toBeInTheDocument();
 	});
-	// it('should be deleted if clicked delete button', () => {
-	// 	const component = render(<Todo name='hello' />);
-	// 	const deleteButton = component.getByTestId('delete-task');
-	// 	fireEvent.click(deleteButton);
-	// 	expect(component.getAllByTestId('name')).toBeNull();
-	// });
 });

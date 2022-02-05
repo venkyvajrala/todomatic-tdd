@@ -70,7 +70,7 @@ function App(props) {
 	return (
 		<div className='App'>
 			<Form adTask={adTask} className='Card' />
-			<div id='ad-form'>{FilterButtons}</div>
+			<div id='filter-div'>{FilterButtons}</div>
 
 			<ul data-testid='tasks'>{taskList}</ul>
 		</div>

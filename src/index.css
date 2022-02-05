@@ -90,13 +90,13 @@ form button {
 	border: none;
 }
 
-#ad-form {
+#filter-div {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	padding: 10px;
 }
-#ad-form button {
+#filter-div button {
 	width: 8.3em;
 	height: 2.2em;
 	margin-left: 5px;

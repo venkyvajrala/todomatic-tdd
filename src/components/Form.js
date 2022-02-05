@@ -8,7 +8,7 @@ const Form = (props) => {
 		setTaskName('');
 	};
 	return (
-		<form onSubmit={handleSubmit}>
+		<form onSubmit={handleSubmit} className='Card'>
 			<input
 				type='text'
 				data-testid='task-input'

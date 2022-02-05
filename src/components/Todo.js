@@ -11,7 +11,7 @@ const Todo = (props) => {
 		setEditing(false);
 	};
 	const viewTemplate = (
-		<div>
+		<div className='Card'>
 			<input
 				type='checkbox'
 				data-testid='complete-task'
@@ -22,28 +22,36 @@ const Todo = (props) => {
 				className={props.completed ? 'text-strike' : null}>
 				{props.name}
 			</span>
-			<button data-testid='edit-task' onClick={() => setEditing(true)}>
-				edit
-			</button>
 			<button
 				data-testid='delete-task'
-				onClick={() => props.deleteTask(props.id)}>
+				onClick={() => props.deleteTask(props.id)}
+				className='btn-danger'>
 				delete
+			</button>
+			<button
+				data-testid='edit-task'
+				onClick={() => setEditing(true)}
+				className='btn-edit'>
+				edit
 			</button>
 		</div>
 	);
 	const editTemplate = (
-		<div>
+		<div className='Card'>
 			<input
 				type='text'
 				data-testid='edit-name'
 				value={newName}
-				onChange={handleChange}></input>
-			<button data-testid='cancel' onClick={() => setEditing(false)}>
-				cancel
-			</button>
-			<button data-testid='save' onClick={handleSave}>
+				onChange={handleChange}
+				className='input-primary'></input>
+			<button data-testid='save' onClick={handleSave} className='btn-success'>
 				save
+			</button>
+			<button
+				data-testid='cancel'
+				onClick={() => setEditing(false)}
+				className='btn-cancel'>
+				cancel
 			</button>
 		</div>
 	);

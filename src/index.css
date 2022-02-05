@@ -1,17 +1,113 @@
-body {
+* {
 	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-		'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-		sans-serif;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	font-family: 'Nunito', sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	color: #fff;
+	background: #333;
 }
 
-code {
-	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-		monospace;
+.App {
+	max-width: 728px;
+	margin: 4rem auto;
+}
+
+.Card {
+	background: #444;
+	padding: 1em;
+	border-bottom: 1px solid #333333;
+}
+
+.Card span {
+	padding-left: 1em;
+	font-size: 1.3em;
+}
+
+li {
+	list-style: none;
+}
+
+button {
+	border-radius: 1em;
+	min-width: 4em;
+	min-height: 2.1em;
+	cursor: pointer;
+	outline: none;
+	background-color: white;
 }
 
 .text-strike {
 	text-decoration: line-through;
+	color: #8c7e64;
+}
+
+.btn-danger {
+	color: #fe0046;
+	border: 1px solid;
+	float: right;
+}
+.btn-edit {
+	color: #2863ce;
+	border: 2px solid;
+	float: right;
+	margin-right: 10px;
+}
+.btn-success {
+	color: rgb(1, 151, 81);
+	border: 2px solid;
+	float: right;
+}
+
+.btn-cancel {
+	color: #ff005e;
+	border: 2px solid;
+	float: right;
+	margin-right: 10px;
+}
+
+form {
+	display: flex;
+	justify-content: center;
+}
+form input {
+	background: #f5f6f7;
+	padding: 0.5rem 1rem;
+	border: 1px solid #ff9900;
+	border-radius: 10px;
+	margin: 0.3rem 1rem 0 0;
+}
+
+form button {
+	background: #292929;
+	color: #fff;
+	padding: 0.5rem 1rem;
+	border-radius: 8px;
+	cursor: pointer;
+	border: none;
+}
+
+#ad-form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
+}
+#ad-form button {
+	width: 8.3em;
+	height: 2.2em;
+	margin-left: 5px;
+}
+.input-primary {
+	padding: 0.5em;
+
+	border-radius: 10px;
+}
+
+.active {
+	background-color: #3e3e3e;
+	color: white;
 }

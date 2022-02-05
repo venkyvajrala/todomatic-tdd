@@ -56,14 +56,22 @@ function App(props) {
 		);
 	});
 
-	const FilterButtons = FILTER_NAMES.map((filter) => {
-		return <FilterButton name={filter} key={filter} setFilter={setFilter} />;
+	const FilterButtons = FILTER_NAMES.map((filterName) => {
+		return (
+			<FilterButton
+				name={filterName}
+				key={filterName}
+				setFilter={setFilter}
+				globalFilter={filter}
+			/>
+		);
 	});
 
 	return (
-		<div>
-			<Form adTask={adTask} />
-			{FilterButtons}
+		<div className='App'>
+			<Form adTask={adTask} className='Card' />
+			<div id='ad-form'>{FilterButtons}</div>
+
 			<ul data-testid='tasks'>{taskList}</ul>
 		</div>
 	);

@@ -7,7 +7,8 @@ import reportWebVitals from './reportWebVitals';
 const DATA = [
 	{ name: 'eat', completed: true, id: 'todo-0' },
 	{ name: 'sleep', completed: false, id: 'todo-1' },
-	{ name: 'drink', completed: false, id: 'todo-2' },
+	{ name: 'movie-watch', completed: false, id: 'todo-2' },
+	{ name: 'code', completed: false, id: 'todo-3' },
 ];
 ReactDOM.render(
 	<React.StrictMode>

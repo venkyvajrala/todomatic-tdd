@@ -114,4 +114,41 @@ describe('tests todo app', () => {
 
 		expect(adTaskInputField).toHaveValue('');
 	});
+
+	it('should render all filter buttons', () => {
+		const { getByText } = render(<App todos={todos} />);
+		expect(getByText('All')).toBeInTheDocument();
+		expect(getByText('Completed')).toBeInTheDocument();
+		expect(getByText('Active')).toBeInTheDocument();
+	});
+	it('if completed filter button clicked should display only completed tasks ', () => {
+		const todos = [
+			{ name: 'eat', completed: true, id: 'todo-0' },
+			{ name: 'sleep', completed: false, id: 'todo-1' },
+			{ name: 'movie-watch', completed: true, id: 'todo-2' },
+			{ name: 'code', completed: false, id: 'todo-3' },
+		];
+		const { getAllByTestId } = render(<App todos={todos} />);
+		const filterButtons = getAllByTestId('filter-button');
+		fireEvent.click(filterButtons[2]);
+		const todosCheckBoxes = getAllByTestId('complete-task');
+		todosCheckBoxes.forEach((checkBox, index) => {
+			expect(checkBox.checked).toEqual(true);
+		});
+	});
+	it('if active filter button clicked should display only completed tasks ', () => {
+		const todos = [
+			{ name: 'eat', completed: true, id: 'todo-0' },
+			{ name: 'sleep', completed: false, id: 'todo-1' },
+			{ name: 'movie-watch', completed: true, id: 'todo-2' },
+			{ name: 'code', completed: false, id: 'todo-3' },
+		];
+		const { getAllByTestId } = render(<App todos={todos} />);
+		const filterButtons = getAllByTestId('filter-button');
+		fireEvent.click(filterButtons[1]);
+		const todosCheckBoxes = getAllByTestId('complete-task');
+		todosCheckBoxes.forEach((checkBox) => {
+			expect(checkBox.checked).toEqual(false);
+		});
+	});
 });

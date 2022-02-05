@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 const Form = (props) => {
 	const [taskName, setTaskName] = useState('');
 	const handleSubmit = (e) => {
-		console.log('jhsgh');
 		e.preventDefault();
 		props.adTask(taskName);
 		setTaskName('');

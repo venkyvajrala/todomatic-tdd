@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-
+import Form from './components/Form';
+import { nanoid } from 'nanoid';
 import Todo from './components/Todo';
 
 function App(props) {
@@ -30,6 +31,11 @@ function App(props) {
 		setTasks(updatedList);
 	};
 
+	const adTask = (name) => {
+		const newTask = { name: name, completed: false, id: 'todo-' + nanoid() };
+		const updatedTasks = [newTask, ...tasks];
+		setTasks(updatedTasks);
+	};
 	const taskList = tasks.map((task) => {
 		return (
 			<Todo
@@ -45,6 +51,7 @@ function App(props) {
 
 	return (
 		<div>
+			<Form adTask={adTask} />
 			<ul data-testid='tasks'>{taskList}</ul>
 		</div>
 	);

@@ -43,7 +43,8 @@ const Todo = (props) => {
 				data-testid='edit-name'
 				value={newName}
 				onChange={handleChange}
-				className='input-primary'></input>
+				className='input-primary'
+				key='edit-name'></input>
 			<button data-testid='save' onClick={handleSave} className='btn-success'>
 				save
 			</button>

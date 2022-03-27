@@ -1,8 +1,10 @@
-kind: Deployment
 apiVersion: apps/v1
+kind: Deployment
 metadata:
+  #the Deployment Name
   name: react
 spec:
+  #the Number of Pods
   replicas: 1
   selector:
     matchLabels:
@@ -12,22 +14,62 @@ spec:
       labels:
         app: react
     spec:
+      # Container Details
       containers:
-        - name: react
-          image: zero2onebase2/todoreactimage
-
-
-...
+      - name: react
+        # Docker Image
+        image: zero2onebase2/todoreactimage
+        resources:
+         #cpu and memory limit
+          limits:
+            memory: "550Mi"
+            cpu: "500m"
+        ports:
+        #the port on which the app can be reached out inside the container
+        - containerPort: 80
+---
+#service 
 apiVersion: v1
 kind: Service
 metadata:
-  name: react-srv
+   #the Serivce Name- it should match with the lable name of the deployment 
+  name: react
 spec:
+  #type of the service
   type: NodePort
   selector:
     app: react
   ports:
-    - name: my-app
-      port: 3000
-      targetPort: 3000
+  - port: 3050
+    targetPort: 3000
+    protocol: TCP
+    nodePort: 31000
+---
+# kind: Deployment
+# apiVersion: apps/v1
+# metadata:
+#   name: react
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       app: react
+#   template:
+#     metadata:
+#       labels:
+#         app: react
+#     spec:
+#       containers:
+#         - name: react
+#           image: zero2onebase2/todoreactimage
+#           resources:
+#          #cpu and memory limit
+#             limits:
+#               memory: "550Mi"
+#               cpu: "500m"
+#           ports:
+#         #the port on which the app can be reached out inside the container
+#           - containerPort: 80
+
+
 

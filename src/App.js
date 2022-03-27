@@ -52,7 +52,8 @@ function App(props) {
 				key={task.id}
 				deleteTask={deleteTask}
 				editTask={editTask}
-				toggleTaskCompletion={toggleTaskCompletion}></Todo>
+				toggleTaskCompletion={toggleTaskCompletion}
+			></Todo>
 		);
 	});
 

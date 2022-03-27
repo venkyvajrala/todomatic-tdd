@@ -1,3 +1,4 @@
+/* eslint-disable testing-library/prefer-screen-queries */
 import { render } from '@testing-library/react';
 import FilterButton from '../components/FilterButton';
 describe('testing filter block of todo', () => {

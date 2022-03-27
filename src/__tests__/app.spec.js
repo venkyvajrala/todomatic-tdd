@@ -1,3 +1,4 @@
+/* eslint-disable testing-library/prefer-screen-queries */
 import {
 	fireEvent,
 	getByText,
@@ -15,6 +16,7 @@ describe('tests todo app', () => {
 		const { getAllByRole } = render(<App todos={todos} />);
 
 		//getting all li elements data
+		// eslint-disable-next-line testing-library/prefer-screen-queries
 		const todoList = getAllByRole('listitem');
 		expect(todoList.length).toEqual(2);
 

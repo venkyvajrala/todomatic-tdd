@@ -16,22 +16,26 @@ const Todo = (props) => {
 				type='checkbox'
 				data-testid='complete-task'
 				defaultChecked={props.completed}
-				onClick={() => props.toggleTaskCompletion(props.id)}></input>
+				onClick={() => props.toggleTaskCompletion(props.id)}
+			></input>
 			<span
 				data-testid='name'
-				className={props.completed ? 'text-strike' : null}>
+				className={props.completed ? 'text-strike' : null}
+			>
 				{props.name}
 			</span>
 			<button
 				data-testid='delete-task'
 				onClick={() => props.deleteTask(props.id)}
-				className='btn-danger'>
+				className='btn-danger'
+			>
 				delete
 			</button>
 			<button
 				data-testid='edit-task'
 				onClick={() => setEditing(true)}
-				className='btn-edit'>
+				className='btn-edit'
+			>
 				edit
 			</button>
 		</div>
@@ -43,14 +47,16 @@ const Todo = (props) => {
 				data-testid='edit-name'
 				value={newName}
 				onChange={handleChange}
-				className='input-primary'></input>
+				className='input-primary'
+			></input>
 			<button data-testid='save' onClick={handleSave} className='btn-success'>
 				save
 			</button>
 			<button
 				data-testid='cancel'
 				onClick={() => setEditing(false)}
-				className='btn-cancel'>
+				className='btn-cancel'
+			>
 				cancel
 			</button>
 		</div>

@@ -1,0 +1,20 @@
+def test()
+{
+    echo "${env.GIT_BRANCH} is branch"
+    echo "${GIT_BRANCH} is another branch"
+}
+pipeline
+{
+agent {node { label 'StoreOrderOptimiser'}}
+
+stages {
+stage("one") {
+steps {
+sh "env"
+script {
+    test()
+}
+}
+}
+}
+}

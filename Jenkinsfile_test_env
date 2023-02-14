@@ -5,7 +5,7 @@ def test()
 }
 pipeline
 {
-agent {node { label 'StoreOrderOptimiser'}}
+agent any
 
 stages {
 stage("one") {

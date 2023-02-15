@@ -16,7 +16,6 @@ agent any
 stages {
 stage("one") {
 steps {
-sh "env"
 script {
     test()
 }

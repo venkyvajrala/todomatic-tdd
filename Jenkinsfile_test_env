@@ -1,7 +1,5 @@
 def test()
 {
-    echo "${env.GIT_BRANCH} is branch"
-    echo "${GIT_BRANCH} is another branch"
     if (env.GIT_BRANCH != 'origin/master') {
         echo "${env.GIT_BRANCH} not allowed"
         def abortMessage = 'Aborting...Only Master Branch allowed'

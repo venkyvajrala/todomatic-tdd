@@ -1,6 +1,7 @@
 @Library('tesco-storeorder-optimisation@OOTR-1263') _
 def test()
 {
+    sh "env"
     if (env.GIT_BRANCH != 'origin/master') {
         echo "${env.GIT_BRANCH} not allowed"
         def abortMessage = 'Aborting...Only Master Branch allowed'

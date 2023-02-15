@@ -3,7 +3,7 @@ def test()
     if (env.GIT_BRANCH != 'origin/master') {
         echo "${env.GIT_BRANCH} not allowed"
         def abortMessage = 'Aborting...Only Master Branch allowed'
-        // utils.abortPipeline("$abortMessage")
+        //utils.abortPipeline("$abortMessage")
         return
     }
 }

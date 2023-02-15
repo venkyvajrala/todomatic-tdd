@@ -2,7 +2,7 @@
 def test()
 {
     sh "env"
-    echo "${env.library.tesco-storeorder-optimisation.version}"
+    echo "${library.tesco-storeorder-optimisation.version}"
     if (env.GIT_BRANCH != 'origin/master') {
         echo "${env.GIT_BRANCH} not allowed"
         def abortMessage = 'Aborting...Only Master Branch allowed'

@@ -59,4 +59,5 @@ jobs:
           app-name: 'my-web-app-zero'
           slot-name: 'Production'
           package: .
+          type: static
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_891261EEDE9145F8A433C1DABDA0AB37 }}

@@ -49,8 +49,8 @@ jobs:
         with:
           name: node-app
 
-      - name: Unzip artifact for deployment
-        run: unzip release.zip
+      # - name: Unzip artifact for deployment
+      #   run: unzip release.zip
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
@@ -59,4 +59,4 @@ jobs:
           app-name: 'todomatic-todo'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9CD41EFC39D041A7BCE5B20C6305299C }}
-          package: .
+          package: release.zip

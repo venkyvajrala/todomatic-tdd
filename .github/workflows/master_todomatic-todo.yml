@@ -52,8 +52,10 @@ jobs:
       - name: Unzip artifact for deployment
         run: unzip release.zip
  
-      - name: list dirs
-        run: ls -ltr
+      - name: list dirs and remove zip file
+        run: |
+          ls -latr
+          rm release.zip
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
